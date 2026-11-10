@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-oak text-ivory font-sans font-light;
+    /* subtle wood grain: fine vertical streaks + broad tonal bands */
+    background-image:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.14) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(90deg, rgba(184,146,74,.035) 0 2px, transparent 2px 23px),
+      linear-gradient(180deg, rgba(90,22,32,.12), transparent 40%, rgba(0,0,0,.25));
+  }
+  ::selection { background: #5a1620; color: #f0e6d2; }
+}
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 1.4s ease, transform 1.4s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
